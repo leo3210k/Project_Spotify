@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <div class="body">
+      <Menu />
+      <Content />
+      <Footer />
+      <div class="temporary grey darken-4">Empty space</div>
+    </div>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Menu from "./components/template/Menu";
+import Content from "./components/template/Content";
+import Footer from "./components/template/Footer";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { Menu, Footer, Content },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+
+  display: grid;
+  grid-template-columns: 200px 1fr 270px;
+  grid-template-rows:
+    1fr
+    70px;
+  grid-template-areas:
+    "menu content temporary"
+    "footer footer footer";
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.temporary {
+  grid-area: temporary;
 }
 </style>
