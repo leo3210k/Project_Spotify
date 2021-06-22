@@ -4,7 +4,7 @@
       <Menu />
       <Content />
       <Footer />
-      <div class="temporary grey darken-4">Empty space</div>
+      <div class="temporary black">Empty space</div>
     </div>
   </v-app>
 </template>
