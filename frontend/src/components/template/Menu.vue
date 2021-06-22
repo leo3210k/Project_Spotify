@@ -7,9 +7,9 @@
         <v-icon color="green darken-4">fas fa-record-vinyl</v-icon>-->
   <!--<v-icon color="green darken-4">fa fa-ellipsis-h</v-icon>-->
 
-  <v-navigation-drawer class="menu grey darken-4" permanent>
+  <v-navigation-drawer class="menu black" permanent>
     <v-list dense nav>
-      <v-list-item to="/">
+      <v-list-item class="link" to="/">
         <v-list-item-icon>
           <v-icon color="white">fa fa-home</v-icon>
         </v-list-item-icon>
@@ -18,7 +18,7 @@
           <v-list-item-title class="items font-weight-bold">Início</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item to="/navigation">
+      <v-list-item class="link" to="/navigation">
         <v-list-item-icon>
           <v-icon color="white">fa fa-search</v-icon>
         </v-list-item-icon>
@@ -29,22 +29,22 @@
       </v-list-item>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text font-weight-light pt-5">SUA BIBLIOTECA</v-list-item-title>
+          <v-list-item-title class="text-library font-weight-light pt-5">SUA BIBLIOTECA</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item to="/liked-songs">
         <v-list-item-content>
-          <v-list-item-title class="text font-weight-black">Músicas Curtidas</v-list-item-title>
+          <v-list-item-title class="text-link font-weight-black">Músicas Curtidas</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item to="/albums">
         <v-list-item-content>
-          <v-list-item-title class="text font-weight-black">Álbuns</v-list-item-title>
+          <v-list-item-title class="text-link font-weight-black">Álbuns</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item to="/artists">
         <v-list-item-content>
-          <v-list-item-title link class="text font-weight-black">Artistas</v-list-item-title>
+          <v-list-item-title link class="text-link font-weight-black">Artistas</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -65,11 +65,24 @@ export default {
 </script>
 
 <style>
-    .items {
-        color: white;
-    }
+  .link:hover {
+    text-decoration-color: #282929;
+    background-color: #282929;
+  }
 
-    .text {
-        color: gray;
-    }
+  .items {
+    color: white;
+  }
+
+  .text-library {
+    color: #868787;
+  }
+
+  .text-link {
+    color: #868787;
+  }
+
+  .text-link:hover {
+    color: #e7e6e6;
+  }
 </style>
