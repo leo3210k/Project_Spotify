@@ -53,14 +53,14 @@
 
 <script>
 export default {
-  data: function () {
+  /*data: function () {
     return {
       items: [
         { title: "Início", icon: "fa fa-home" },
         { title: "Navegar", icon: "fa fa-search" },
       ],
     };
-  },
+  },*/
 };
 </script>
 
