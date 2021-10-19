@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
  
 import router from './config/router' 
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

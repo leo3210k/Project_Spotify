@@ -6,21 +6,21 @@
                 <a href>Música</a>
                 <a href>Artista</a>
             </div>  
-            <v-icon class="px-2" color="green darken-4">fa fa-heart</v-icon>
+            <v-icon color="green darken-4">fa fa-heart</v-icon>
         </div>
         <div>
-            <v-icon class="px-2" color="green darken-4">fa fa-random</v-icon>
-            <v-icon class="px-2" color="green darken-4">fa fa-angle-left</v-icon>  
-            <v-icon class="px-2" color="green darken-4">fa fa-pause</v-icon>
-            <v-icon class="d-none px-2" color="green darken-4">fa fa-play</v-icon>                 
-            <v-icon class="px-2" color="green darken-4">fa fa-angle-right</v-icon>
-            <v-icon class="px-2" color="green darken-4">fa fa-undo</v-icon>
+            <v-icon color="green darken-4">fa fa-random</v-icon>
+            <v-icon color="green darken-4">fa fa-angle-left</v-icon>  
+            <v-icon color="green darken-4">fa fa-pause</v-icon>
+            <v-icon class="d-none " color="green darken-4">fa fa-play</v-icon>                 
+            <v-icon color="green darken-4">fa fa-angle-right</v-icon>
+            <v-icon color="green darken-4">fa fa-undo</v-icon>
         </div>
         <div>
-            <v-icon class="px-2" color="green darken-4">fa fa-plus</v-icon>
-            <v-icon class="px-2" color="green darken-4">fa fa-volume-down</v-icon>               
-            <v-icon class="px-2" color="green darken-4">fa fa-volume-up</v-icon>              
-            <v-icon class="px-2" color="green darken-4">fa fa-volume-off</v-icon></div>
+            <v-icon color="green darken-4">fa fa-plus</v-icon>
+            <v-icon color="green darken-4">fa fa-volume-down</v-icon>               
+            <v-icon color="green darken-4">fa fa-volume-up</v-icon>              
+            <v-icon color="green darken-4">fa fa-volume-off</v-icon></div>
     </v-card>
 </template>
 

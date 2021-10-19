@@ -13,6 +13,7 @@
 import Menu from "./components/template/Menu";
 import Content from "./components/template/Content";
 import Footer from "./components/template/Footer";
+import '@fortawesome/fontawesome-free/js/all'
 
 export default {
   name: "App",
