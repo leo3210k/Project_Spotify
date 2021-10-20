@@ -21,9 +21,9 @@ module.exports = app => {
                 'Senhas não conferem')
 
             const emailFromDB = await app.db('users')
-                .where({ email: user.email })
+                .where({ email: user.email }).first()
             const usernameFromDB = await app.db('users')
-                .where({ username: user.username })
+                .where({ username: user.username }).first()
             if(!user.id) {
                 notExistsOrError(emailFromDB, 'Email já cadastrado')
                 notExistsOrError(usernameFromDB, 'Nome de usuário já usado')
@@ -53,6 +53,7 @@ module.exports = app => {
     const get = (req, res) => {
         app.db('users')
             .select('id', 'username', 'email', 'admin')
+            .whereNull('deletedAt')
             .then(users => res.json(users))
             .catch(err => res.status(500).send(err))
     }
@@ -61,6 +62,7 @@ module.exports = app => {
         app.db('users')
             .select('id', 'username', 'email', 'admin')
             .where({ id: req.params.id })
+            .whereNull('deletedAt')
             .first()
             .then(user => res.json(user))
             .catch(err => res.status(500).send(err))
@@ -69,8 +71,8 @@ module.exports = app => {
     const remove = (req, res) => {
         try {
             const myMusics = app.db('mymusics')
-                .where({ userId: req.params.id })
-                .del()
+            .where({ userId: req.params.id })
+            .del()
             
             const rowsUpdated = app.db('users')
                 .update({ deletedAt: new Date() })
