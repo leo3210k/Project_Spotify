@@ -52,7 +52,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('users')
-            .select('id', 'username', 'email', 'admin')
+            .select('id', 'username', 'email', 'admin', 'deletedAt')
             .whereNull('deletedAt')
             .then(users => res.json(users))
             .catch(err => res.status(500).send(err))
@@ -60,7 +60,7 @@ module.exports = app => {
 
     const getById = (req, res) => {
         app.db('users')
-            .select('id', 'username', 'email', 'admin')
+            .select('id', 'username', 'email', 'admin', 'deletedAt')
             .where({ id: req.params.id })
             .whereNull('deletedAt')
             .first()
@@ -75,8 +75,8 @@ module.exports = app => {
             .del()
             
             const rowsUpdated = app.db('users')
-                .update({ deletedAt: new Date() })
                 .where({ id: req.params.id })
+                .update({ deletedAt: new Date() })
             existsOrError(rowsUpdated, 'Usuário não encontrado.')
 
             res.status(204).send()
