@@ -36,17 +36,33 @@
       :headers="headers"
       :items="items"
       :search="search"
-    ></v-data-table>
+      class="elevation-1 mb-5"
+    >
+      <template v-slot:item.actions>
+        <v-icon small class="" color="green darken-4">fa fa-play</v-icon>              
+      </template>
+    </v-data-table>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import { baseApiUrl } from "@/global";
+
 export default {
   name: "LikedSongs",
-  data: function () {
+  data: function() {
     return {
-      search: '',
+      search: "",
       headers: [
+        {
+          text: "",
+          value: "actions",
+          align: "right",
+          class: "text-overline",
+          
+          sortable: true,
+        },
         {
           text: "TÍTULO",
           value: "titulo",
@@ -70,7 +86,11 @@ export default {
           sortable: true,
         },
       ],
-      items: [
+      musics: [],
+      artists: [],
+      items: [],
+      teste: 1,
+      /*items: [
         {
           titulo: "imagine",
           artista: "Ariana Grande",
@@ -86,15 +106,56 @@ export default {
           artista: "Taylor Swift",
           data: "15/12/2020",
         },
-      ],
+      ],*/
     };
+  },
+  methods: {
+    play() {
+      
+    },
+    getElements(element) {
+      const music = this.musics.filter((music) => music.id == element.musicId);
+      const artist = this.artists.filter((artist) => artist.id == music[0].artistId);
+
+      return {
+        titulo: music[0].name,
+        artista: artist[0].name,
+        data: this.formatDate(element.addAt),
+      };
+    },
+    formatDate(date) {
+      return date
+        .split("T")[0]
+        .split("-")
+        .reverse()
+        .join("/");
+    },
+    loadMusics() {
+      const url = `${baseApiUrl}/mymusics`;
+
+      axios.get(url).then((res) => {
+        res.data.map((element) => {
+          this.items.push(this.getElements(element));
+        });
+      });
+    },
+  },
+  beforeMount() {
+    axios.get(`${baseApiUrl}/musics`).then((res) => (this.musics = res.data));
+    axios.get(`${baseApiUrl}/artists`).then((res) => (this.artists = res.data));
+
+    this.loadMusics();
   },
 };
 </script>
 
 <style>
-    .teste1 {
-        width: 100%;
-        height: 190px;
-    }
+.teste1 {
+  width: 100%;
+  height: 190px;
+}
+
+.play {
+  background-color: green;
+}
 </style>
